@@ -20,6 +20,7 @@ dependencies {
     compile     group: 'javax.annotation', name: 'javax.annotation-api', version: '1.2-b02';
     compile     group: 'org.glassfish.jersey.containers', name: 'jersey-container-servlet', version: '2.10';
     compile     group: 'org.glassfish.jersey.ext', name: 'jersey-mvc', version: '2.3.1';
-    compile     group: 'org.glassfish.jersey.media', name: 'jersey-media-json-jackson1', version: '2.11';
+    compile     group: 'org.glassfish.jersey.media', name: 'jersey-media-json-jackson', version: '2.11';
     compile     group: 'com.sun.jersey', name: 'jersey-json', version: '1.18.1';
+    compile     group: 'com.github.mpkorstanje', name: 'tr39-confusables-skeleton', version: '8.0.10';
 }
