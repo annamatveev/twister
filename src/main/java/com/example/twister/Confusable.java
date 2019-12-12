@@ -5,23 +5,18 @@ import java.util.ArrayList;
 import java.util.Map;
 
 public class Confusable {
-    static Map<String, String[]> CONFUSABLES_MAP = Map.of("a", new String[] {"\u237A", "\u0430", "\uD835\uDFAA" });
 
     public static ArrayList<String> getConfusables(String word) {
         ArrayList<String> wordPermutations = new ArrayList<String>();
         for (int i = 0; i < word.length(); i++) {
-            char currLetter = word.charAt(i);
-            String[] confusableLetters = CONFUSABLES_MAP.get(String.valueOf(currLetter));
+            ConfusableLetter currLetter = new ConfusableLetter(Character.toString(word.charAt(i)));
 
-            if (confusableLetters != null) {
-                for (String confusableLetter : confusableLetters) {
-                    wordPermutations.add(word.substring(0, i) + confusableLetter + word.substring(i + 1));
-                }
+            for (String alternativeLetter : currLetter.getConfusables()) {
+                wordPermutations.add(word.substring(0, i) + alternativeLetter + word.substring(i + 1));
             }
         }
 
         System.out.println(wordPermutations);
-        System.out.println(CONFUSABLES_MAP);
         return wordPermutations;
     }
 }
