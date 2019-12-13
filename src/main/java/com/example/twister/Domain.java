@@ -1,7 +1,6 @@
 package com.example.twister;
 
 import java.net.IDN;
-import java.text.ParseException;
 import java.util.Objects;
 
 public class Domain {
