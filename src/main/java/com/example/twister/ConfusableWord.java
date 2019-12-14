@@ -4,9 +4,9 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Map;
 
-public class Confusable {
+public class ConfusableWord {
 
-    public static ArrayList<String> getConfusables(String word) {
+    public static ArrayList<String> getConfusableWords(String word) {
         ArrayList<String> wordPermutations = new ArrayList<String>();
         for (int i = 0; i < word.length(); i++) {
             ConfusableLetter currLetter = new ConfusableLetter(Character.toString(word.charAt(i)));
@@ -16,7 +16,6 @@ public class Confusable {
             }
         }
 
-        System.out.println(wordPermutations);
         return wordPermutations;
     }
 }

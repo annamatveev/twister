@@ -6,8 +6,6 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.*;
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.stream.Collectors;
 
 @Path("/domainConfusables")
 public class Twister {
@@ -17,13 +15,13 @@ public class Twister {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
-    public Response sayHtmlHello(@QueryParam( "domain" ) String domain) {
+    public Response getConfusableDomains(@QueryParam( "domain" ) String domain) {
         MultivaluedMap<String, String> queryParams = uriInfo.getQueryParameters();
         String domainName = queryParams.getFirst("domain");
 
         System.out.println(domain);
         Domain originalDomain = new Domain(domainName);
-        ArrayList<String> confusableDomainNames = Confusable.getConfusables(originalDomain.getTopLevelDomain());
+        ArrayList<String> confusableDomainNames = ConfusableWord.getConfusableWords(originalDomain.getTopLevelDomain());
         ArrayList<Domain> confusableLiveDomains = new ArrayList<Domain>();
         ArrayList<String> confusableDeadDomainsPunycodes = new ArrayList<String>();
 
